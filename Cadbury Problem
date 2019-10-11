@@ -1,6 +1,6 @@
 m, n, p, q = input().split()
-ll = 0#int
-bb = 0#int
+ll = 0
+bb = 0
 count = 0
 
 def CadBury(m, n, p, q):
