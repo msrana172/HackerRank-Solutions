@@ -1,0 +1,53 @@
+m, n, p, q = input().split()
+ll = 0#int
+bb = 0#int
+count = 0
+
+def CadBury(m, n, p, q):
+    leng = [m, n]
+    brd = [p, q]
+    for l in leng:
+        for b in brd:
+            Call(l, b)
+
+def Call(l, b):
+    global count
+    area = l * b
+    if l > b:
+        bb = l
+        rem = bb - b
+        rem_part1 = rem
+        rem_part2 = b
+        l = rem_part1
+        b = rem_part2
+        if l != b:
+            if (l==1) or (b==1):
+                count += 1
+                count += (l*b)
+                return
+            else:
+                count += 1
+                Call(l, b)
+        if l==b:
+            count+=2
+            return
+    elif b > l:
+        ll = b
+        rem = ll - l
+        rem_part1 = rem
+        rem_part2 = l
+        l = rem_part1
+        b = rem_part2
+        if l != b:
+            if (l==1) or (b==1):
+                count += 1
+                count += (l*b)
+                return
+            else:
+                count += 1
+                Call(l, b)
+        if l==b:
+            count+=2
+            return
+CadBury(int(m), int(n), int(p), int(q))
+print(count)
